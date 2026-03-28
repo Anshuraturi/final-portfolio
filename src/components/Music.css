@@ -293,25 +293,7 @@
   }
 
   .player-timeline {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 0;
-    flex: 1;
-    order: -1;
-  }
-
-  .time-display {
-    font-size: 0.65rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 600;
-    min-width: 28px;
-    text-align: center;
-  }
-
-  .progress-slider {
-    flex: 1;
-    height: 3px;
+    display: none;
   }
 
   .player-controls {
@@ -357,7 +339,74 @@
   }
 
   .volume-control {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+  }
+
+  .volume-icon {
+    font-size: 1rem;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+  }
+
+  .volume-slider {
+    width: 40px;
+    height: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .volume-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Mobile Progress Bar - Below the player */
+  .mobile-progress-container {
+    position: fixed;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    z-index: 998;
+    transition: height 0.3s ease;
+  }
+
+  .mobile-progress-container:hover {
+    height: 4px;
+  }
+
+  .mobile-progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--accent-color);
   }
 }
 
@@ -428,25 +477,7 @@
   }
 
   .player-timeline {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin: 0;
-    flex: 1;
-    order: -1;
-  }
-
-  .time-display {
-    font-size: 0.6rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 600;
-    min-width: 24px;
-    text-align: center;
-  }
-
-  .progress-slider {
-    flex: 1;
-    height: 2px;
+    display: none;
   }
 
   .player-controls {
@@ -477,9 +508,9 @@
     background: var(--accent-color);
     color: white;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    font-size: 0.8rem;
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -492,6 +523,72 @@
   }
 
   .volume-control {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .volume-icon {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+  }
+
+  .volume-slider {
+    width: 30px;
+    height: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .volume-slider::-moz-range-thumb {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Mobile Progress Bar - Below the player */
+  .mobile-progress-container {
+    position: fixed;
+    bottom: 75px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    z-index: 998;
+    transition: height 0.3s ease;
+  }
+
+  .mobile-progress-container:hover {
+    height: 4px;
+  }
+
+  .mobile-progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px var(--accent-color);
   }
 }

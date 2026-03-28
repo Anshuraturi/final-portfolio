@@ -271,65 +271,90 @@ export default function Music() {
     setIsSeeking(false)
   }
 
+  // Handle mobile progress bar click
+  const handleMobileProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!audioRef.current || !duration) return
+    const container = e.currentTarget
+    const clickX = e.clientX - container.getBoundingClientRect().left
+    const percentage = clickX / container.offsetWidth
+    const newTime = percentage * duration
+    audioRef.current.currentTime = newTime
+    setCurrentTime(newTime)
+  }
+
+  // Calculate progress percentage for mobile progress bar
+  const progressPercentage = duration ? (currentTime / duration) * 100 : 0
+
   return (
-    <div className="music-player">
-      <div className="player-label">My Top 5</div>
-      
-      <div className="player-card">
-        <div className="player-poster">
-          <img src={currentSong.poster} alt={currentSong.title} />
-        </div>
+    <>
+      <div className="music-player">
+        <div className="player-label">My Top 5</div>
         
-        <div className="player-info">
-          <p className="song-artist">{currentSong.artist}</p>
-          <p className="song-title">{currentSong.title}</p>
-        </div>
+        <div className="player-card">
+          <div className="player-poster">
+            <img src={currentSong.poster} alt={currentSong.title} />
+          </div>
+          
+          <div className="player-info">
+            <p className="song-artist">{currentSong.artist}</p>
+            <p className="song-title">{currentSong.title}</p>
+          </div>
 
-        {/* Timeline & Duration */}
-        <div className="player-timeline">
-          <span className="time-display">{formatTime(currentTime)}</span>
-          <input
-            ref={progressRef}
-            type="range"
-            min="0"
-            max={duration || 0}
-            value={currentTime}
-            onChange={handleSeekInput}
-            onMouseDown={handleSeekStart}
-            onMouseUp={handleSeekEnd}
-            onTouchStart={handleSeekStart}
-            onTouchEnd={handleSeekEnd}
-            className="progress-slider"
-            title="Seek"
-          />
-          <span className="time-display">{formatTime(duration)}</span>
-        </div>
-
-        <div className="player-controls">
-          <button className="control-btn" onClick={handlePrevious} title="Previous">
-            ⏮
-          </button>
-          <button className="control-btn play-btn" onClick={togglePlay} title={isPlaying ? "Pause" : "Play"}>
-            {isPlaying ? '⏸' : '▶'}
-          </button>
-          <button className="control-btn" onClick={handleNext} title="Next">
-            ⏭
-          </button>
-          <div className="volume-control">
+          {/* Timeline & Duration - Desktop only */}
+          <div className="player-timeline">
+            <span className="time-display">{formatTime(currentTime)}</span>
             <input
+              ref={progressRef}
               type="range"
               min="0"
-              max="100"
-              value={volume}
-              onChange={(e) => setVolume(Number(e.target.value))}
-              className="volume-slider"
-              title="Volume"
+              max={duration || 0}
+              value={currentTime}
+              onChange={handleSeekInput}
+              onMouseDown={handleSeekStart}
+              onMouseUp={handleSeekEnd}
+              onTouchStart={handleSeekStart}
+              onTouchEnd={handleSeekEnd}
+              className="progress-slider"
+              title="Seek"
             />
+            <span className="time-display">{formatTime(duration)}</span>
           </div>
+
+          <div className="player-controls">
+            <button className="control-btn" onClick={handlePrevious} title="Previous">
+              ⏮
+            </button>
+            <button className="control-btn play-btn" onClick={togglePlay} title={isPlaying ? "Pause" : "Play"}>
+              {isPlaying ? '⏸' : '▶'}
+            </button>
+            <button className="control-btn" onClick={handleNext} title="Next">
+              ⏭
+            </button>
+            <div className="volume-control">
+              <div className="volume-icon">🔊</div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={volume}
+                onChange={(e) => setVolume(Number(e.target.value))}
+                className="volume-slider"
+                title="Volume"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Progress Bar - Below the player */}
+        <div className="mobile-progress-container" onClick={handleMobileProgressClick}>
+          <div 
+            className="mobile-progress-bar" 
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
         </div>
       </div>
 
       <audio ref={audioRef} crossOrigin="anonymous" />
-    </div>
+    </>
   )
 }
