@@ -1,11 +1,6 @@
 import './Header.css'
 
-interface HeaderProps {
-  activeSection: string
-  setActiveSection: (section: string) => void
-}
-
-export default function Header({ activeSection, setActiveSection }: HeaderProps) {
+export default function Header() {
   return (
     <header className="header">
       <div className="header-container">

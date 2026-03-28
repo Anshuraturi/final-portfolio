@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -11,11 +10,9 @@ import Music from './components/Music'
 import './App.css'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home')
-
   return (
     <div className="app">
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Header />
       <Music />
       <main>
         <section id="home">
