@@ -293,7 +293,25 @@
   }
 
   .player-timeline {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    flex: 1;
+    order: -1;
+  }
+
+  .time-display {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    min-width: 28px;
+    text-align: center;
+  }
+
+  .progress-slider {
+    flex: 1;
+    height: 3px;
   }
 
   .player-controls {
@@ -410,7 +428,25 @@
   }
 
   .player-timeline {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    flex: 1;
+    order: -1;
+  }
+
+  .time-display {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  .progress-slider {
+    flex: 1;
+    height: 2px;
   }
 
   .player-controls {
