@@ -1,0 +1,237 @@
+.achievements {
+  background-color: var(--bg-color);
+  border-top: 1px solid rgba(230, 57, 70, 0.1);
+  padding: 60px 20px;
+  transition: background-color 0.6s ease;
+}
+
+.achievements h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--text-color);
+  font-size: 2.5rem;
+  transition: color 0.6s ease;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.achievement-card {
+  background: rgba(255, 184, 0, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.achievement-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 184, 0, 0.06);
+}
+
+.achievement-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 15px;
+}
+
+.achievement-header h3 {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 700;
+  transition: color 0.6s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.achievement-issuer {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.6s ease;
+}
+
+.achievement-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.certificate-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certificate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 200px;
+  padding: 10px;
+}
+
+.certificate-pdf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+  transition: all 0.6s ease;
+}
+
+.pdf-icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.certificate-pdf p {
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0;
+  color: var(--text-color);
+  transition: color 0.6s ease;
+}
+
+.achievement-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid rgba(230, 57, 70, 0.1);
+  padding-top: 15px;
+}
+
+.achievement-date {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.6s ease;
+}
+
+.view-btn {
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.6s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.view-btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .achievements {
+    padding: 40px 15px;
+  }
+
+  .achievements h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .achievement-card {
+    padding: 20px;
+  }
+
+  .achievement-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .achievement-content {
+    min-height: 150px;
+  }
+
+  .certificate-image img {
+    max-height: 150px;
+  }
+
+  .pdf-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements {
+    padding: 30px 12px;
+    margin-bottom: 80px;
+  }
+
+  .achievements h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .achievement-card {
+    padding: 16px;
+    gap: 15px;
+  }
+
+  .achievement-header h3 {
+    font-size: 1rem;
+  }
+
+  .achievement-issuer {
+    font-size: 0.85rem;
+  }
+
+  .achievement-content {
+    min-height: 120px;
+  }
+
+  .certificate-image img {
+    max-height: 120px;
+  }
+
+  .pdf-icon {
+    font-size: 2rem;
+  }
+
+  .view-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}

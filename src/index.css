@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease, background 0.6s ease;
+}
+
+:root {
+  --primary-color: #E63946;
+  --secondary-color: #F4A59D;
+  --dark-bg: #F5EBE0;
+  --light-bg: #EBE3D5;
+  --text-dark: #1a1a1a;
+  --text-light: #5a5a5a;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+  --max-width: 1200px;
+  
+  /* Global Theme Variables */
+  --bg-color: #F5EBE0;
+  --card-color: #EBE3D5;
+  --accent-color: #E63946;
+  --text-color: #1a1a1a;
+  --button-color: #E63946;
+  --border-color: #D6C6B8;
+  --nav-color: #F5EBE0;
+  --hero-gradient: linear-gradient(135deg, #F5EBE0, #EBE3D5);
+  
+  /* Legacy theme variables for compatibility */
+  --theme-bg: var(--bg-color);
+  --theme-card: var(--card-color);
+  --theme-accent: var(--accent-color);
+  --theme-text: var(--text-color);
+  --theme-button: var(--button-color);
+  --theme-border: var(--border-color);
+  --theme-nav: var(--nav-color);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.6s ease, color 0.6s ease;
+  padding-bottom: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 30px 12px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--accent-color);
+  transition: color 0.6s ease;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.6s ease, color 0.6s ease, transform 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
+  background-color: var(--button-color);
+  color: white;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  section {
+    padding: 60px 20px;
+  }
+}
+
+/* Prevent music player overlap on mobile */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 85px;
+  }
+
+  main {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-bottom: 80px;
+  }
+}
